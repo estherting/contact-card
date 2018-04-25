@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The Codingdojo Contact Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('form').submit(function() {
+          var fname = $('#f_name').val();
+          var lname = $('#l_name').val();
+          var descr = $('#description').val();
+          var strToAppend = "<div class='card' name-attr='<h2>"+fname+" "+lname+"</h2>' descr-attr='"+descr+"'><h2>"+fname+" "+lname+"</h2></div>";
+          $('.cards').append(strToAppend);
+          return false;
+        })
+
+        $(document).on("click", ".card", function() {
+          if($(this).text() != $(this).attr('descr-attr')) {
+            var descr = $(this).attr('descr-attr');
+            $(this).text(descr);
+          } else {
+            var nameAttr = $(this).attr('name-attr');
+            $(this).replaceWith("<div class='card' name-attr='"+nameAttr+"' descr-attr='"+$(this).text()+"'>"+nameAttr+"</div>");
+          }
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <h1>DojoHub</h1>
+    <form>
+      <label>First name:
+        <input id="f_name" type="text">
+      </label>
+      <label>Last name:
+        <input id="l_name" type="text">
+      </label>
+      <label>Description:<br>
+        <textarea id="description" type="text" placeholder="Enter description:"></textarea>
+      </label>
+      <button type="submit">Add User</button>
+    </form>
+
+    <div class="cards">
+
+    </div>
+  </body>
+</html>

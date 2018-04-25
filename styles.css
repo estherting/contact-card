@@ -1,0 +1,31 @@
+h1 {
+  margin: 30px;
+}
+
+form {
+  margin: 30px;
+  display: inline-block;
+}
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+textarea {
+  width: 200px;
+  height: 100px;
+}
+
+.cards {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card {
+  width: 200px;
+  height: 100px;
+  border: 2px solid black;
+  text-align: center;
+  margin: 10px;
+}
